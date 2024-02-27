@@ -84,4 +84,4 @@ def predecir_tumor(data):
     else:
         mensaje = "Tumor maligno"
         color="si"
-    return result,prediccion_binaria,porcentaje_acierto_tumor_maligno,porc_acierto,mensaje,color
+    return result, prediccion_binaria, porcentaje_acierto_tumor_maligno, porc_acierto, mensaje, color

@@ -52,11 +52,11 @@ def crear_app():
                     'dimension fractal peor': 0
             }
                 
-            for key, value in datos.items():
-                if 'area' in key:
-                    datos[key] = np.int8(value)  # Convertir a int8
-                else:
-                    datos[key] = np.float16(value)  # Convertir a float16
+            # for key, value in datos.items():
+            #     if 'area' in key:
+            #         datos[key] = np.int8(value)  # Convertir a int8
+            #     else:
+            #         datos[key] = np.float16(value)  # Convertir a float16
 
             df = pd.DataFrame.from_dict(datos, orient='index', columns=['valor'])
             resultado = predecir_tumor(df.valor)
