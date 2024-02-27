@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
 import pandas as pd
+import numpy as np
+from flask import Flask, render_template, request
 from models import predecir_tumor
 from visitas import contar_visitas
 
@@ -50,20 +51,27 @@ def crear_app():
                     'simetria_peor' : float(request.form['simetria_peor']),
                     'dimension fractal peor': 0
             }
+                
+            for key, value in datos.items():
+                if 'area' in key:
+                    datos[key] = np.int8(value)  # Convertir a int8
+                else:
+                    datos[key] = np.float16(value)  # Convertir a float16
+
             df = pd.DataFrame.from_dict(datos, orient='index', columns=['valor'])
             resultado = predecir_tumor(df.valor)
-            return render_template('resultado.html', resultado=(resultado[0],resultado[1][0],resultado[2]),acierto=resultado[3],pronostico=resultado[0],result=resultado[4],color=resultado[5])
+            return render_template('resultado.html', acierto=resultado[3],pronostico=resultado[0],result=resultado[4],color=resultado[5])
         
         except Exception as e:
             mensaje_error = f"Error durante la predicción: {str(e)}"
             print(mensaje_error)
             return f"Error: {mensaje_error}", 500
     
-    @app.route('/info')
-    def info():
-            with open('wdbc.txt', 'r') as f:
-                contenido = f.read()
-            return render_template('/info.html', contenido=contenido)
+    # @app.route('/info')
+    # def info():
+    #         with open('wdbc.txt', 'r') as f:
+    #             contenido = f.read()
+    #         return render_template('/info.html', contenido=contenido)
     
     return app
 
