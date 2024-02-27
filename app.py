@@ -6,26 +6,17 @@ from visitas import contar_visitas
 def crear_app():
 
     app = Flask(__name__, template_folder="templates")
-    # modelo_forest = joblib.load('modelo_forest.joblib')
 
     @app.route('/')
     def index():
         total_visitas = contar_visitas()
         return render_template('index.html', total_visitas=total_visitas)
 
-    @app.route('/info')
-    def info():
-        # with open('wdbc.txt', 'r') as f: #C:\JulioPrograma\PYTHON-PROYECTS\Cancer\cancer_predict_app\cancer_predict_app\wdbc.txt
-        with open('wdbc.txt', 'r') as f:
-            contenido = f.read()
-
-        # return render_template('/info.html')
-        return render_template('/info.html', contenido=contenido)
-
     @app.route('/predecir', methods=['POST'])
     def predecir():
-        if request.method == 'POST':
-            datos = {
+        try:
+            if request.method == 'POST':
+                datos = {
                     'radio_promedio' : float(request.form['radio_promedio']),
                     'textura_promedio' : float(request.form['textura_promedio']),
                     'perimetro_promedio' : float(request.form['perimetro_promedio']),
@@ -61,8 +52,19 @@ def crear_app():
             }
             df = pd.DataFrame.from_dict(datos, orient='index', columns=['valor'])
             resultado = predecir_tumor(df.valor)
-
             return render_template('resultado.html', resultado=(resultado[0],resultado[1][0],resultado[2]),acierto=resultado[3],pronostico=resultado[0],result=resultado[4],color=resultado[5])
+        
+        except Exception as e:
+            mensaje_error = f"Error durante la predicción: {str(e)}"
+            print(mensaje_error)
+            return f"Error: {mensaje_error}", 500
+    
+    @app.route('/info')
+    def info():
+            with open('wdbc.txt', 'r') as f:
+                contenido = f.read()
+            return render_template('/info.html', contenido=contenido)
+    
     return app
 
 if __name__ == '__main__':

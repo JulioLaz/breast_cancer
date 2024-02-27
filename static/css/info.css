@@ -1,0 +1,10 @@
+pre {
+           font-size: calc(.8rem + .6vw);
+           font-family: Arial, sans-serif;
+           color: #333;
+           background-color: rgba(239, 184, 229, 0.9);
+           padding: 10px;
+           border: 1px solid #ccc;
+           border-radius: 5px;
+           padding: 1rem;
+}

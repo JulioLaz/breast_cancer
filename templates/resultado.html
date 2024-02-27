@@ -8,58 +8,11 @@
     <title>Resultado de Predicción</title>
     <link rel="stylesheet" href="../static/css/reset.css" />
     <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/resultado.css" />
     <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
 
 </head>
 
-<style>
-.result{
-    font-size: calc(3.5rem + 1vw);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-style: normal;
-    color: royalblue;
-    font-weight: 700;
-    margin: 2rem 0;
-    padding: 2rem 0;
-    background-color: rgba(239, 184, 229, 0.9);
-}
-
-.pronostico{
-    font-size: calc(1rem + .7vw);
-    color: black;
-    font-weight: 300;
-    padding: 3rem 6rem;
-    background-color: rgba(239, 184, 229, 0.9);
-}
-.acierto{
-    font-size: calc(1rem + .6vw);
-    color: black;
-    font-weight: 200;
-    padding-bottom: 3rem;
-    background-color: rgba(239, 184, 229, 0.9);
-
-}
-
-</style>
-<style>
-    /* Animación de parpadeo */
-    @keyframes blink {
-        0% {
-            opacity: 1;
-        }
-        50% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    /* Aplicar la animación a la clase .result */
-    .result {
-        animation: blink 1s infinite; /* La animación parpadeará indefinidamente cada 1 segundo */
-    }
-</style>
 <body>
 
 <div class="container mt-5">
@@ -70,10 +23,11 @@
     {% else %}
     <h2 class="result" style="color: royalblue;">{{ result }}</h2>
     {% endif %}
-
-    <p class="pronostico" >{{pronostico}}</p>
-    <p class="acierto" >Confianza de la predicción: {{acierto}}% </span></p>
-    <a href="{{ url_for('index') }}" class="btn btn-outline-dark btn_title btn_volver">Verificar nuevo estudio</a>
+    <div class="container explication" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
+        <p class="pronostico" >{{pronostico}}</p>
+        <p class="acierto" >Confianza de la predicción: {{acierto}}% </span></p>
+        <a href="{{ url_for('index') }}" class="btn btn-outline-dark btn_title btn_volver">Verificar nuevo estudio</a>
+    </div>
 </div>
 
 </body>

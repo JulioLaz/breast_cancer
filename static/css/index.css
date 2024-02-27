@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  width: 30%;
+  margin-right: 20px;
+}
+
+label {
+  font-size: 1.1rem;
+  flex-direction: row;
+  width: 10rem;
+  margin-right: .5rem;
+}
+
+input {
+  width: 6rem;
+  height: 2.4rem;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.div_vars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30rem;
+  height: 2rem;
+  margin: 1rem 0;
+}

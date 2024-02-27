@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 80vw;
 }
 
 form {
@@ -160,23 +160,6 @@ span {
     color: rgb(64, 141, 141);
 }
 
-/* .clickme {
-    animation: animation 1.5s infinite;
-}
-
-@keyframes animation {
-    0% {
-        color: darkgray
-    }
-
-    50% {
-        color: black;
-    }
-
-    100% {
-        color: darkgray
-    }
-} */
 
 @media (max-width: 1000px) {
     .form-group {
@@ -192,7 +175,7 @@ span {
 
     }
     .btn_volver{
-        min-width: 100%;
+        min-width: inherit;
 
     }
     .autor{
@@ -221,17 +204,6 @@ span {
     }
 
   }
-
-.grafica {
-    max-width: 100%; /* Ajusta el ancho máximo al 100% del contenedor */
-    overflow: hidden; /* Evita que el canvas se desborde si el contenedor es más pequeño */
-    background-color: rgba(214, 210, 208, 0.5);
-    }
-
-.grafico {
-    width: 100%; /* Ajusta el ancho del canvas al 100% */
-    height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
-}
 
 .about{
     display: flex;
