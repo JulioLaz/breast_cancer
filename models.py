@@ -8,7 +8,7 @@ from sklearn.feature_selection import RFECV
 def predecir_tumor(data):
     global selected_columns_rfecv
 
-    df = pd.read_csv('C:/JulioPrograma/PYTHON-PROYECTS/Cancer/cancer_predict_app/cancer_predict_app/data_cancer_final.csv')
+    df = pd.read_csv('data_cancer_final.csv')
     X = df.drop(columns='diagnostico', axis=1)
     y = df.diagnostico
 
