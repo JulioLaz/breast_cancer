@@ -1,0 +1,38 @@
+<!-- templates/resultado.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Resultado de Predicción</title>
+    <link rel="stylesheet" href="../static/css/reset.css" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+  
+ </head>
+</head>
+<body>
+<style>
+        pre {
+            font-size: calc(.8rem + .6vw); /* Tamaño de fuente más grande */
+            font-family: Arial, sans-serif; /* Fuente y familia de fuentes */
+            color: #333; /* Color del texto */
+            background-color: rgba(239, 184, 229, 0.9);
+            padding: 10px; /* Espaciado interno */
+            border: 1px solid #ccc; /* Borde */
+            border-radius: 5px; /* Borde redondeado */
+            padding: 1rem;
+        }
+</style>
+<div class="container mt-5" >
+    <h1 class="h1">Informacion</h1>
+<div style="    display: flex;align-items: center;justify-content: center;">
+    <pre>{{ contenido }}</pre>
+</div>    
+
+    <a href="{{ url_for('index') }}" class="btn btn-outline-dark btn_title btn_volver">página principal</a>
+</div>
+
+</body>
+</html>

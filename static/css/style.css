@@ -1,0 +1,251 @@
+body {
+
+    background-image: url(../bc.png);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    background-color: rgba(214, 211, 211, 0.8);
+    /* border-radius: 5px; */
+    /* border:1px solid gray; */
+    padding: .6rem;
+    color: black;
+    font-size: 1.4rem;
+    font-weight: 550;
+}
+
+.form-group {
+    text-align: right;
+    margin-right: 10vw;
+    margin-bottom: 8px;
+
+}
+
+.form-select {
+    background-color: transparent !important;
+    background-color: rgba(242, 240, 239, 0.3) !important;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 1.2rem;
+    font-weight: 100;
+    border-radius: 5px;
+    width: 15rem !important;
+    padding: 4px;
+}
+
+.h1 {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: rgba(239, 184, 229, 0.9);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 1rem 0;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+    padding: 1rem 0;
+    color: rgb(5, 5, 60);
+    border-radius: 5px;
+}
+
+h2 {
+    padding-bottom: .8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    text-align: center;
+    font-weight: 600;
+    padding-top: .2rem;
+    background-color: rgba(239, 184, 229, 0.9);
+}
+
+h3 {
+    padding-bottom: .8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+img {
+    width: 2rem;
+    margin-left: 1rem;
+}
+
+.canva {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-outline-dark {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(210, 209, 209);
+}
+
+.btn_volver {
+    align-items: center;
+    min-width: 1000px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(214, 210, 208, 0.5);
+    font-weight: 700;
+    color: rgba(24, 24, 24, 0.779);
+    text-align: center;
+    padding: .8rem 0;
+    /* width: 100%; */
+    overflow: hidden;
+    word-wrap: break-word;
+    font-size: calc(1rem + 1.2vw);
+    /* max-width: 1000px; */
+    min-width: 1000px;
+}
+
+span {
+    font-size: calc(1.5rem + 1.4vw);
+    font-weight: 800;
+}
+
+.container {
+    padding: 0 !important;
+}
+
+.btn_title {
+    background-color: rgba(191, 56, 184, 0.8);
+    margin: 1rem;
+    animation: pulse-animation 1s infinite;
+    font-weight: 600;
+
+}
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+}
+
+.autor {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding-top: .5rem;
+    margin-right: 10rem;
+}
+
+.correo {
+    padding-bottom: .8rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 500;
+    color: rgb(64, 141, 141);
+}
+
+/* .clickme {
+    animation: animation 1.5s infinite;
+}
+
+@keyframes animation {
+    0% {
+        color: darkgray
+    }
+
+    50% {
+        color: black;
+    }
+
+    100% {
+        color: darkgray
+    }
+} */
+
+@media (max-width: 1000px) {
+    .form-group {
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: .8rem;
+      font-size: .4rem;
+    } 
+    p{
+        /* min-width: 1000px; */
+        min-width: 100%;
+
+    }
+    .btn_volver{
+        min-width: 100%;
+
+    }
+    .autor{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-right: 0;
+
+    }
+    h1{
+        font-size: 2rem;
+    }
+    .clickme{
+        font-size: 1rem;
+        font-weight: 600;
+        padding: .5rem 0;
+        background-color: rgba(214, 210, 208, 0.5);
+
+    }
+    label{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .form-select {
+        font-size: .9rem;
+    }
+
+  }
+
+.grafica {
+    max-width: 100%; /* Ajusta el ancho máximo al 100% del contenedor */
+    overflow: hidden; /* Evita que el canvas se desborde si el contenedor es más pequeño */
+    background-color: rgba(214, 210, 208, 0.5);
+    }
+
+.grafico {
+    width: 100%; /* Ajusta el ancho del canvas al 100% */
+    height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto */
+}
+
+.about{
+    display: flex;
+    flex-wrap: row;
+    align-items: center;
+}
+.visit{
+    display: flex;
+    height: 2rem;
+    border-radius: 5px;
+    margin-left: 1rem;
+    font-size: 1rem;
+    border: 1px solid gray;
+    padding: 0 5px;
+    justify-content: center;
+    align-items: center;
+}

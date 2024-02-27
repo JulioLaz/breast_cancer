@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/css/reset.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+  <link rel="stylesheet" href="sweetalert2.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" />
+  <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+
+  <title>Breast_Cancer_prediction</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .column {
+      width: 30%;
+      margin-right: 20px;
+    }
+
+    label {
+      font-size: 1.1rem;
+      flex-direction: row;
+      width: 10rem;
+      margin-right: .5rem;
+    }
+
+    input {
+      width: 6rem;
+      height: 2.4rem;
+      font-size: 1.2rem;
+      background-color: transparent;
+      border: 1px solid gray;
+      border-radius: 3px;
+      text-align: center;
+    }
+
+    .div_vars {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 30rem;
+      height: 2rem;
+      margin: 1rem 0;
+    }
+  </style>
+
+  
+  <meta name='description' content='Credit Scoring Prediction'>
+  <meta name='keywords' content='APP: predicción de aceptación crediticia'>
+</head>
+
+<body>
+  <div class="container mt-2" style="flex-direction: column;">
+    <div class="h1">
+      <h1>Tumor mamario</h1>
+      <h2>Pronóstico de cancer con clasificación binaria</h2>
+      <div class="autor">
+        <h2>By: Julio A. Lazarte</h2>
+        <div class="about">
+          <a href="https://youtu.be/8RHpwPi-JSA" target="_blank">
+            <img src="../static/youtube.svg" alt="youtube" />
+          </a>
+          <a href="https://www.linkedin.com/in/julio-lazarte-developer/" target="_blank">
+            <img src="../static/linkedin.svg" alt="linkedin" />
+          </a>
+          <a href="javascript:void(0);" onclick="enviarCorreo()">
+            <img src="../static/email.svg" alt="mail" />
+          </a>
+          <a href="/info">
+            <img src="../static/info.svg" alt="info" />
+          </a>
+          <span class="visit">visitas: {{ total_visitas }}</span>
+        </div>
+      </div>
+    </div>
+    <h3 class="clickme" style="font-size: 3rem;margin: 1.8rem 0;">
+      Ingresa valores del informe PAAF
+    </h3>
+
+    <form method="post" action="{{ url_for('predecir') }}">
+      <div class="container">
+        <div class="column" style="flex-direction: row;">
+          <div class="form-group">
+            <div class="div_vars">
+              <label for="radio_promedio">Radio mean:</label>
+              <input type="text" id="radio_promedio" name="radio_promedio" value="14.1273"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="textura_promedio">Textura mean:</label>
+              <input type="text" id="textura_promedio" name="textura_promedio" value="19.2895"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="perimetro_promedio">Perímetro mean:</label>
+              <input type="text" id="perimetro_promedio" name="perimetro_promedio" value="91.9708"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="area_promedio">Área mean:</label>
+              <input type="text" id="area_promedio" name="area_promedio" value="654.883"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="compacidad_promedio">Compacidad mean:</label>
+              <input type="text" id="compacidad_promedio" name="compacidad_promedio" value="0.104342"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="concavidad_promedio">Concavidad mean:</label>
+              <input type="text" id="concavidad_promedio" name="concavidad_promedio" value="0.088801"><br><br>
+            </div>
+            <div class="div_vars">
+              <label for="puntos_concavos_promedio">Puntos concavos mean:</label>
+              <input type="text" id="puntos_concavos_promedio" name="puntos_concavos_promedio" value="0.048920"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="simetria_promedio">Simetría mean:</label>
+              <input type="text" id="simetria_promedio" name="simetria_promedio" value="0.181165"><br><br>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="form-group">
+            <div class="div_vars">
+              <label for="radio_se">Radio se:</label>
+              <input type="text" id="radio_se" name="radio_se" value="0.405178"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="perimetro_se">Perímetro se:</label>
+              <input type="text" id="perimetro_se" name="perimetro_se" value="2.86604"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="area_se">Área se:</label>
+              <input type="text" id="area_se" name="area_se" value="40.3376"><br><br>
+            </div>
+            <div class="div_vars">
+              <label for="suavidad_se">Suavidad se:</label>
+              <input type="text" id="suavidad_se" name="suavidad_se" value="0.007041"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="compacidad_se">Compacidad se:</label>
+              <input type="text" id="compacidad_se" name="compacidad_se" value="0.025479"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="puntos_concavos_se">Puntos concavos se:</label>
+              <input type="text" id="puntos_concavos_se" name="puntos_concavos_se" value="0.011796"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="simetria_se">Simetría se:</label>
+              <input type="text" id="simetria_se" name="simetria_se" value="0.020542"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="dimension_fractal_se">Dimensión Fractal se:</label>
+              <input type="text" id="dimension_fractal_se" name="dimension_fractal_se" value="0.003795"><br><br>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="form-group">
+            <div class="div_vars">
+              <label for="radio_peor">Radio peor:</label>
+              <input type="text" id="radio_peor" name="radio_peor" value="16.26917"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="textura_peor">Textura peor:</label>
+              <input type="text" id="textura_peor" name="textura_peor" value="25.67706"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="perimetro_peor">Perímetro peor:</label>
+              <input type="text" id="perimetro_peor" name="perimetro_peor" value="107.26107"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="area_peor">Área peor:</label>
+              <input type="text" id="area_peor" name="area_peor" value="880.5836"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="suavidad_peor">suavidad peor:</label>
+              <input type="text" id="suavidad_peor" name="suavidad_peor" value="0.132367"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="concavidad_peor">Concavidad peor:</label>
+              <input type="text" id="concavidad_peor" name="concavidad_peor" value="0.272190"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="puntos_concavos_peor">Puntos concavos peor:</label>
+              <input type="text" id="puntos_concavos_peor" name="puntos_concavos_peor" value="0.114608"><br><br>
+            </div>
+
+            <div class="div_vars">
+              <label for="simetria_peor">Simetría peor:</label>
+              <input type="text" id="simetria_peor" name="simetria_peor" value="0.290074"><br><br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-outline-dark btn_title" id="submitButton" onclick="showSpinner()">
+        PRONOSTICAR
+      </button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    function showSpinner() {
+      const submitButton = document.getElementById("submitButton");
+      submitButton.innerHTML =
+        '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+    }
+  </script>
+  <script type="text/javascript">
+    function enviarCorreo() {
+      var correo = "julioalbertolazarte@gmail.com";
+
+      const swalWithButton = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-outline-dark",
+        },
+        buttonsStyling: false,
+      });
+
+      // Mostrar un alert con el correo y un botón de copiar
+      swalWithButton.fire({
+        title: "Dirección de correo",
+        html: `<div class='correo'>${correo}</div>`,
+        confirmButtonText: "Copiar",
+        preConfirm: () => {
+          // Copiar al portapapeles:
+          const el = document.createElement("textarea");
+          el.value = correo;
+          document.body.appendChild(el);
+          el.select();
+          document.execCommand("copy");
+          document.body.removeChild(el);
+        },
+      });
+
+      setTimeout(() => {
+        Swal.close();
+      }, 1800);
+    }
+  </script>
+</body>
+
+</html>
