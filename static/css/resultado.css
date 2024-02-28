@@ -14,14 +14,14 @@
     color: black;
     font-weight: 300;
     padding: 3rem 6rem;
-    background-color: rgba(239, 184, 229, 0.9);
+    /* background-color: rgba(239, 184, 229, 0.9); */
 }
 .acierto{
     font-size: calc(1rem + .6vw);
     color: black;
     font-weight: 200;
     padding-bottom: 3rem;
-    background-color: rgba(239, 184, 229, 0.9);
+    /* background-color: rgba(239, 184, 229, 0.9); */
 
 }
 

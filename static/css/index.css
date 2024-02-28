@@ -1,15 +1,17 @@
 .container {
+  max-width: 80vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .column {
-  width: 30%;
+  width: 20rem;
   margin-right: 20px;
 }
 
 label {
-  font-size: 1.1rem;
+  font-size: 1rem;
   flex-direction: row;
   width: 10rem;
   margin-right: .5rem;
@@ -18,7 +20,7 @@ label {
 input {
   width: 6rem;
   height: 2.4rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: transparent;
   border: 1px solid gray;
   border-radius: 3px;

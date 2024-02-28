@@ -52,11 +52,11 @@ def crear_app():
                     'dimension fractal peor': 0
             }
                 
-            # for key, value in datos.items():
-            #     if 'area' in key:
-            #         datos[key] = np.int8(value)  # Convertir a int8
-            #     else:
-            #         datos[key] = np.float16(value)  # Convertir a float16
+            for key, value in datos.items():
+                if 'area' in key:
+                    datos[key] = np.int8(value)  # Convertir a int8
+                else:
+                    datos[key] = np.float16(value)  # Convertir a float16
 
             df = pd.DataFrame.from_dict(datos, orient='index', columns=['valor'])
             resultado = predecir_tumor(df.valor)
@@ -67,11 +67,11 @@ def crear_app():
             print(mensaje_error)
             return f"Error: {mensaje_error}", 500
     
-    # @app.route('/info')
-    # def info():
-    #         with open('wdbc.txt', 'r') as f:
-    #             contenido = f.read()
-    #         return render_template('/info.html', contenido=contenido)
+    @app.route('/info')
+    def info():
+            with open('wdbc.txt', 'r') as f:
+                contenido = f.read()
+            return render_template('/info.html', contenido=contenido)
     
     return app
 

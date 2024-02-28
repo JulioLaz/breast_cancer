@@ -6,8 +6,14 @@ body {
     background-repeat: no-repeat;
 }
 
-.container {
-    max-width: 80vw;
+div {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+pre {
+    display: flex;
+    align-items: center;
+    justify-content: center
 }
 
 form {
@@ -97,7 +103,7 @@ img {
 
 .btn_volver {
     align-items: center;
-    min-width: 1000px;
+    /* min-width: 1000px; */
 }
 
 p {
@@ -120,16 +126,12 @@ span {
     font-weight: 800;
 }
 
-.container {
-    padding: 0 !important;
-}
-
 .btn_title {
     background-color: rgba(191, 56, 184, 0.8);
     margin: 1rem;
     animation: pulse-animation 1s infinite;
     font-weight: 600;
-
+    width: 98%;
 }
 
 @keyframes pulse-animation {
@@ -163,54 +165,57 @@ span {
 
 @media (max-width: 1000px) {
     .form-group {
-      display:flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: .8rem;
-      font-size: .4rem;
-    } 
-    p{
-        /* min-width: 1000px; */
-        min-width: 100%;
-
+        display: flex;
+        flex-direction: column;
+        margin-bottom: .8rem;
+        font-size: .4rem;
     }
-    .btn_volver{
-        min-width: inherit;
 
-    }
-    .autor{
+    .autor {
         align-items: center;
         justify-content: center;
         flex-direction: column;
         margin-right: 0;
 
     }
-    h1{
+
+    h1 {
         font-size: 2rem;
     }
-    .clickme{
+
+    .clickme {
         font-size: 1rem;
         font-weight: 600;
         padding: .5rem 0;
         background-color: rgba(214, 210, 208, 0.5);
 
     }
-    label{
+
+    label {
         font-size: 1rem;
         font-weight: 600;
     }
+
     .form-select {
         font-size: .9rem;
     }
 
-  }
+    .btn_title {
+        margin: 0;
+        font-weight: 400;
+        width: 100%;
+        margin: 1rem 0;
 
-.about{
+    }
+}
+
+.about {
     display: flex;
     flex-wrap: row;
     align-items: center;
 }
-.visit{
+
+.visit {
     display: flex;
     height: 2rem;
     border-radius: 5px;

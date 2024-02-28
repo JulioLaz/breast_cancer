@@ -24,8 +24,8 @@
     <h2 class="result" style="color: royalblue;">{{ result }}</h2>
     {% endif %}
     <div class="container explication" style="display: flex;flex-direction: column;align-items: center;justify-content: center;">
-        <p class="pronostico" >{{pronostico}}</p>
-        <p class="acierto" >Confianza de la predicción: {{acierto}}% </span></p>
+        <div class="pronostico" >{{pronostico}}</div>
+        <div class="acierto" >Confianza de la predicción: {{acierto}}% </span></div>
         <a href="{{ url_for('index') }}" class="btn btn-outline-dark btn_title btn_volver">Verificar nuevo estudio</a>
     </div>
 </div>
